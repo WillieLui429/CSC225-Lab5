@@ -22,16 +22,35 @@
             var elements = document.getElementById("myForm").elements;
             var elemsArr1 = Array.from(elements);
             var submission = {};
+            const form = document.getElementById("myForm")
+
+            myForm.addEventListener("submit",(e) =>
+            {
+                let messages = []
+                if(!(pwd.includes("!")) || !(pwd.includes("?")))
+                {
+                    messages.push("Password must include a '!' or a '?'.")
+
+                }
+            
+            }
+
+        )
 
         }
     </script>
     <body>
         <form id ="myForm">
-            First name:<input type ="text" name ="fname" value = "Donald"><br>
-            Last name: <input type ="text" name ="lname" value = "Duck"><br>
+            First name:<input type ="text" name ="fname" id = "fname" placeholder = "Donald" required><br>
+            Last name: <input type ="text" name ="lname" id = "lname" placeholder = "Duck" required><br>
+            Email: <input type ="email" name ="email" id ="email" placeholder = "DonaldDuck@yahoo.com" required><br>
+            Password: <input type ="password" name ="pwd" id ="pwd" minlength="8" ><br>
+            <p>Password must include ! or ? </p>
+            <button type ="reset">Reset</button>
+            <button onclick="submitForm()">Submit</button>
         </form>
-        <button onclick="submitForm()">Submit</button>
-        <p>click submit and try me</p>
+        
+        
         <p id="demo"></p>
     </body>
 </html>
